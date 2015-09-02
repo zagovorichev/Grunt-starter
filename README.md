@@ -8,3 +8,4 @@ Template for quick start with Grunt.
     $ git clone https://github.com/zShurick/Grunt-starter.git
     ```
 2. Run **npm install**
+3. Run **grunt default**
