@@ -4,34 +4,70 @@ html(lang="en")
         meta(charset="utf-8")
         meta(http-equiv="X-UA-Compatible",content="IE=edge")
         meta(name="viewport",content="width=device-width, initial-scale=1")
+
         title
             | #{title}
-        // build:css css/styles.css
-        // bower:css
-        // endbower
-        link(type="text/css", rel="stylesheet", href="#{css_path}/styles.css")
-        //endbuild
+
+        meta(name="author",content="#{author}")
+        meta(name="contact",content="#{contact}")
+        meta(content="${keywords}",name="keywords")
+        meta(content="${description}",name="description")
+
+        link(rel="alternate",type="application/rss+xml",title="#{feed_title}",href="#{feed_url}")
+        link(rel="next",href="#{host}?page=2")
+
+        //
+            Favicon
         link(href="#{img_path}/logo/apple-touch-icon-144-precomposed.png", sizes="144x144", rel="apple-touch-icon-precomposed")
         link(href="#{img_path}/logo/apple-touch-icon-114-precomposed.png", sizes="114x114", rel="apple-touch-icon-precomposed")
         link(href="#{img_path}/logo/apple-touch-icon-72-precomposed.png", sizes="72x72", rel="apple-touch-icon-precomposed")
         link(href="#{img_path}/logo/apple-touch-icon-57-precomposed.png", rel="apple-touch-icon-precomposed")
-        link(href="#{img_path}/favicon.ico" rel="shortcut icon")
-    body
-        .content
+        link(href="#{img_path}/favicon.ico",rel="shortcut icon")
 
+        //
+            DCTerms
+        meta(content="Copyright (c)#{host}", name="dcterms.rightsHolder")
+        meta(content="All Rights Reserved",name="dcterms.rights")
+        meta(content="2011",name="dcterms.dateCopyrighted")
+        meta(content="#{lang}",name="dc.language")
+        meta(content="#{title}",name="dc.title")
+        meta(content="#{host}",name="dc.publisher")
+        meta(content="${description}",name="dc.description")
+
+        //
+            Facebook
+        meta(property="fb:admins",content="#{fb_admins}")
+        meta(content="#{fb_app_id}",property="fb:app_id")
+
+        //
+            Open Graph
+        meta(property="og:type",content="website")
+        meta(property="og:url",content="#{host}")
+        meta(property="og:image",content="#{img_path}/logo/logo.png")
+        meta(property="og:site_name",content="#{host}")
+        meta(property="og:description",content="#{description}")
+        meta(content="#{img_path}/logo/logo.png",property="og:image")
+
+        //
+            Twitter
+        meta(name="twitter:card",content="summary")
+        meta(content="#{title}",name="twitter:title")
+        meta(content="#{host}",name="twitter:domain")
+        meta(content="#{twitterId}",name="twitter:creator")
+        meta(content="#{twitterId}",name="twitter:site")
+        meta(name="twitter:description",content="#{description}")
+        meta(content="#{img_path}/logo/logo.png",name="twitter:image")
+        meta(content="#{host}",property="twitter:url")
+
+        //
+            Google+
+        link(rel="author",href="https://plus.google.com/#{googleId}")
+        link(rel="publisher",href="https://plus.google.com/#{googleId}")
+
+    body
+        div
             include ./layout/header
 
             block content
 
             include ./layout/footer
-
-        include ../blocks/modals
-
-        // build:js js/_all.js
-        // bower:js
-        // endbower
-        // script(type="text/javascript", src="#{js_path}/layout.js")
-        // endbuild
-        // build:js js/_#{page_name}.js
-        block javascript
-        // endbuild

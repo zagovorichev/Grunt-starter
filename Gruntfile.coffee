@@ -65,9 +65,9 @@ module.exports = (grunt) ->
           use: [pngquant()]
         files:[{
           expand: true,
-          cwd: "src/",
+          cwd: "src",
           src: "img/**/*.{png,jpg,gif}",
-          dest: "build/static/img"
+          dest: "build/static/"
         }]
 
     ### Create web server ###

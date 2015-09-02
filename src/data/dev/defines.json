@@ -1,8 +1,21 @@
 {
+  "author": "A.Zagovorichev",
+  "contact": "admin@blog-tree.com",
   "host": "http://localhost:8000",
 
-  "project_name": "Grunt starter - Quick start with grunt",
+  "project_name": "Grunt starter",
   "title": "Make start with grunt easiest",
+  "description": "Quick start for best practice of web development - all what can be automated",
+  "keywords": "grunt,sass,jade,coffee,web development,frontend developer,create sites",
+  "lang": "en",
 
-  "img_path": "build/static/img"
+  "feed_url": "http://blog-tree.com/feed",
+  "feed_title": "Blog-Tree.com - all about web development",
+
+  "img_path": "build/static/img",
+
+  "googleId": "108397830054065255303",
+  "twitterId": "zBlogTree",
+  "fb_admins": 100001985989067,
+  "fb_app_id": 376818605662721
 }
