@@ -31,6 +31,20 @@ module.exports = (grunt) ->
       ' * - <%= pkg.email %>\n' +
       ' */\n'
 
+    ### i ###
+    clean:
+      dist: "release"
+      build: "build"
+      index: "index.html"
+
+    ### copy files in build ###
+    copy:
+      favicon:
+        expand: true
+        cwd: 'src/img/'
+        src: ['favicon.ico']
+        dest: 'build/static/img'
+
     ### i grunt-contrib-jade ###
     jade:
       build:
@@ -41,6 +55,20 @@ module.exports = (grunt) ->
             require "./src/data/dev/defines.json"
         files:
           "index.html": "src/jade/index.jade"
+
+    ### i grunt-contrib-imagemin ###
+    imagemin:
+      static:
+        options:
+          optimizationLevel: 6
+          progressive: true
+          use: [pngquant()]
+        files:[{
+          expand: true,
+          cwd: "src/",
+          src: "img/**/*.{png,jpg,gif}",
+          dest: "build/static/img"
+        }]
 
     ### Create web server ###
     ### i grunt-contrib-connect ###
@@ -72,8 +100,9 @@ module.exports = (grunt) ->
         options:
           livereload: true
 
-  grunt.registerTask 'content', "Create DOM (HTML) + bower dependencies", ['jade']
+  grunt.registerTask 'content', "Create DOM (HTML) + bower dependencies", ['newer:jade']
+  grunt.registerTask 'images', "Compress images, create sprites", ['newer:imagemin']
 
-  grunt.registerTask 'build', 'Build and RUN application', ['content']
+  grunt.registerTask 'build', 'Build and RUN application', ['content', 'newer:copy', 'images']
   grunt.registerTask 'serve', 'Run web server for auto view results of the developments', ['build', 'connect:dev', 'watch']
   grunt.registerTask 'default', 'Just alias to main grunt compile [serve]', ['serve']
