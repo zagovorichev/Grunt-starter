@@ -9,3 +9,6 @@ Template for quick start with Grunt.
     ```
 2. Run **npm install**
 3. Run **grunt default**
+
+Many more about Grunt development: 
+    [On the Blog-Tree.com ...](http://blog-tree.com/post/grunt-frontend)
