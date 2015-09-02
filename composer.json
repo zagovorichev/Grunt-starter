@@ -1,0 +1,12 @@
+{
+  "name": "rsw/2.0",
+  "description": "SkyWay Investment Portal",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Zagovorichev",
+      "email": "zagovorichev@gmail.com"
+    }
+  ]
+}
